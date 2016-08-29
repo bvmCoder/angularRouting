@@ -7,7 +7,7 @@
 
         var self = this;
 
-        self.message = 'Welcome to School Buddy!';
+        self.message = 'Welcome to Boot Camp!';
 
         self.refresh = function() {
             $log.debug($route.current);
