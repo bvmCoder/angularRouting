@@ -5,11 +5,11 @@
 
     function HomeController(dataService, notifier, $route, $log) {
 
-        var vm = this;
+        var self = this;
 
-        vm.message = 'Welcome to School Buddy!';
+        self.message = 'Welcome to School Buddy!';
 
-        vm.refresh = function() {
+        self.refresh = function() {
             $log.debug($route.current);
             $log.debug($route.routes);
             $route.reload();
@@ -17,22 +17,22 @@
 
         dataService.getAllSchools()
             .then(function(schools) {
-                vm.allSchools = schools;
-                vm.schoolCount = schools.length;
+                self.allSchools = schools;
+                self.schoolCount = schools.length;
             })
             .catch(showError);
 
         dataService.getAllClassrooms()
             .then(function(classrooms) {
-                vm.allClassrooms = classrooms;
-                vm.classroomCount = classrooms.length;
+                self.allClassrooms = classrooms;
+                self.classroomCount = classrooms.length;
             })
             .catch(showError);
 
         dataService.getAllActivities()
             .then(function(activities) {
-                vm.allActivities = activities;
-                vm.activityCount = activities.length;
+                self.allActivities = activities;
+                self.activityCount = activities.length;
             })
             .catch(showError);
 

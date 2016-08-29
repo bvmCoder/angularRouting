@@ -5,24 +5,24 @@
 
     function ClassroomController(dataService, notifier, $routeParams) {
 
-        var vm = this;
+        var self = this;
 
-        vm.month = $routeParams.month;
+        self.month = $routeParams.month;
 
         dataService.getClassroom($routeParams.id)
             .then(function (classroom) {
-                vm.currentClassroom = classroom;
+                self.currentClassroom = classroom;
 
                 if ($routeParams.month) {
                     if (classroom.activities.length > 0) {
-                        vm.timePeriod = dataService.getMonthName($routeParams.month);
+                        self.timePeriod = dataService.getMonthName($routeParams.month);
                     }
                     else {
-                        vm.timePeriod = 'No activities this month';
+                        self.timePeriod = 'No activities this month';
                     }
                 }
                 else {
-                    vm.timePeriod = 'All activities';
+                    self.timePeriod = 'All activities';
                 }
 
             })
