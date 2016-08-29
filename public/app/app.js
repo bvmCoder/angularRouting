@@ -1,8 +1,8 @@
 (function() {
 
-    var app = angular.module('app', ['ngRoute']);
-
-    app.config(['$logProvider', '$routeProvider', '$locationProvider', function ($logProvider, $routeProvider, $locationProvider) {
+    angular
+        .module('app', ['ngRoute'])
+        .config(['$logProvider', '$routeProvider', '$locationProvider', function ($logProvider, $routeProvider, $locationProvider) {
 
         $logProvider.debugEnabled(true);
 
@@ -50,9 +50,9 @@
             .otherwise('/');
 
 
-    }]);
+    }])
 
-    app.run(['$rootScope', '$log', function($rootScope, $log) {
+    .run(['$rootScope', '$log', function($rootScope, $log) {
 
         $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 

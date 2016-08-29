@@ -5,11 +5,11 @@
 
     function AllClassroomsController(dataService, notifier) {
 
-        var vm = this;
+        var self = this;
 
         dataService.getAllClassrooms()
             .then(function(classrooms) {
-                vm.allClassrooms = classrooms;
+                self.allClassrooms = classrooms;
             })
             .catch(showError);
 

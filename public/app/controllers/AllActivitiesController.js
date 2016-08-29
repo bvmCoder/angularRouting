@@ -5,28 +5,28 @@
 
     function AllActivitiesController(dataService, notifier, $location, activities) {
 
-        var vm = this;
+        var self = this;
 
-        vm.selectedMonth = 1; // default to January
+        self.selectedMonth = 1; // default to January
 
-        vm.allActivities = activities;
+        self.allActivities = activities;
 
-        vm.search = function () {
-            var classroom_detail_url = '/classrooms/' + vm.selectedClassroom.id + '/detail/' + vm.selectedMonth;
+        self.search = function () {
+            var classroom_detail_url = '/classrooms/' + self.selectedClassroom.id + '/detail/' + self.selectedMonth;
             $location.url(classroom_detail_url);
         };
 
 
         dataService.getAllClassrooms()
             .then(function(classrooms) {
-                vm.allClassrooms = classrooms;
-                vm.selectedClassroom = classrooms[0];
+                self.allClassrooms = classrooms;
+                self.selectedClassroom = classrooms[0];
             })
             .catch(showError);
 
         //dataService.getAllActivities()
         //    .then(function(activities) {
-        //        vm.allActivities = activities;
+        //        self.allActivities = activities;
         //    })
         //    .catch(showError);
 
