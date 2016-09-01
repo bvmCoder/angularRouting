@@ -7,12 +7,16 @@
                     ng-model="activities.selectedClassroom"
                     ng-options="classroom as classroom.name for classroom in activities.allClassrooms"
                     class="form-control"
-                    id="classroomlist"></select>
+                    id="classroomlist">
+
+            </select>
 
         </div>
         <div class="form-group">
             <label for="monthlist">Month</label>
-            <select ng-model="activities.selectedMonth" class="form-control" id="monthlist">
+            <select ng-model="activities.selectedMonth" 
+                    class="form-control" 
+                    id="monthlist">
                 <option value="1">January</option>
                 <option value="2">February</option>
                 <option value="3">March</option>
@@ -27,7 +31,7 @@
                 <option value="12">December</option>
             </select>
         </div>
-        <button ng-click="activities.search()" class="btn btn-default">Search</button>
+        <button ng-click="activities.search();" class="btn btn-default">Search</button>
     </form>
 </div>
 

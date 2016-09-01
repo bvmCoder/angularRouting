@@ -5,26 +5,19 @@
 
     function dataService($http, $q, $log, $timeout) {
 
-        return {
-            getAllSchools: getAllSchools,
-            getAllClassrooms: getAllClassrooms,
-            getAllActivities: getAllActivities,
-            getClassroom: getClassroom,
-            getMonthName: getMonthName
-        };
-
-        function getAllSchools() {
+        
+        function _getAllSchools() {
             return $http.get('api/schools')
                 .then(function(response) {
                     return response.data;
                 })
                 .catch(function(response) {
-                    $log.error('Error retrieving schools: ' + response.statusText);
+                    console.error('Error retrieving schools: ' + response.statusText);
                     return $q.reject('Error retrieving schools.');
                 })
         }
 
-        function getAllClassrooms() {
+        function _getAllClassrooms() {
             return $http.get('api/classrooms')
                 .then(function(response) {
                     return response.data;
@@ -35,7 +28,7 @@
                 })
         }
 
-        function getClassroom(id) {
+        function _getClassroom(id) {
             return $http.get('api/classrooms/' + id)
                 .then(function(response) {
                     return response.data;
@@ -46,7 +39,7 @@
                 })
         }
 
-        function getAllActivities() {
+        function _getAllActivities() {
 
             var deferred = $q.defer();
 
@@ -67,7 +60,7 @@
 
         }
 
-        function getMonthName(month) {
+        function _getMonthName(month) {
 
             var monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
@@ -75,6 +68,15 @@
 
             return monthNames[month - 1];
         }
+
+        return {
+            getAllSchools: _getAllSchools,
+            getAllClassrooms: _getAllClassrooms,
+            getAllActivities: _getAllActivities,
+            getClassroom: _getClassroom,
+            getMonthName: _getMonthName
+        };
+
 
     }
 
