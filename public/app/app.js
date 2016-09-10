@@ -13,18 +13,15 @@
 
         $routeProvider
             .when('/', {
-                controller: 'HomeController',
-                controllerAs: 'home',
+                controller: 'HomeController as home',
                 templateUrl: '/app/templates/home.html'
             })
             .when('/schools', {
-                controller: 'AllSchoolsController',
-                controllerAs: 'schools',
+                controller: 'AllSchoolsController as schools',
                 templateUrl: '/app/templates/allSchools.html'
             })
             .when('/classrooms', {
-                controller: 'AllClassroomsController',
-                controllerAs: 'classrooms',
+                controller: 'AllClassroomsController as classrooms',
                 templateUrl: '/app/templates/allClassrooms.html'
             })
             .when('/activities', {
@@ -56,22 +53,22 @@
 
         $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 
-            $log.debug('successfully changed routes');
+            console.debug('Successfully Changed Routes from run function!');
 
-            $log.debug(event);
-            $log.debug(current);
-            $log.debug(previous);
+            console.debug(event);
+            console.debug(current);
+            console.debug(previous);
 
         });
 
         $rootScope.$on('$routeChangeError', function (event, current, previous, rejection) {
 
-            $log.debug('error changing routes');
+            console.debug('error changing routes');
 
-            $log.debug(event);
-            $log.debug(current);
-            $log.debug(previous);
-            $log.debug(rejection);
+            console.debug(event);
+            console.debug(current);
+            console.debug(previous);
+            console.debug(rejection);
 
         });
 

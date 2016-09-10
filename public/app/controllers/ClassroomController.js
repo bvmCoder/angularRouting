@@ -1,9 +1,8 @@
 (function () {
 
-    angular.module('app')
-        .controller('ClassroomController', ['dataService', 'notifier', '$routeParams', ClassroomController]);
+    'use strict';
 
-    function ClassroomController(dataService, notifier, $routeParams) {
+    var ClassroomController = function ClassroomController(dataService, notifier, $routeParams) {
 
         var self = this;
 
@@ -32,7 +31,13 @@
             notifier.error(message);
         }
 
+    };
 
-    }
+    ClassroomController.$inject = ['dataService', 'notifier', '$routeParams'];
+
+    angular
+        .module('app')
+        .controller('ClassroomController', ClassroomController);
+
 
 }());

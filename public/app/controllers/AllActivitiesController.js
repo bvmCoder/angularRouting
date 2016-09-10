@@ -1,9 +1,7 @@
-(function () {
+(function() {
+    'use strict';
 
-    angular.module('app')
-        .controller('AllActivitiesController', ['dataService', 'notifier', '$location', 'activities', AllActivitiesController]);
-
-    function AllActivitiesController(dataService, notifier, $location, activities) {
+    var AllActivitiesController = function AllActivitiesController(dataService, notifier, $location, activities) {
 
         var self = this;
 
@@ -11,7 +9,7 @@
 
         self.allActivities = activities;
 
-        self.search = function () {
+        self.search = function() {
             var classroom_detail_url = '/classrooms/' + self.selectedClassroom.id + '/detail/' + self.selectedMonth;
             $location.url(classroom_detail_url);
         };
@@ -34,6 +32,12 @@
             notifier.error(message);
         }
 
-    }
+    };
+
+    AllActivitiesController.$inject = ['dataService', 'notifier', '$location', 'activities'];
+
+    angular
+        .module('app')
+        .controller('AllActivitiesController', AllActivitiesController);
 
 }());

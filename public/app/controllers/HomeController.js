@@ -1,9 +1,8 @@
-(function () {
+(function() {
 
-    angular.module('app')
-        .controller('HomeController', ['dataService', 'notifier', '$route', '$log', HomeController]);
+    'use strict';
 
-    function HomeController(dataService, notifier, $route, $log) {
+    var HomeController = function HomeController(dataService, notifier, $route, $log) {
 
         var self = this;
 
@@ -40,6 +39,12 @@
             notifier.error(message);
         }
 
-    }
+    };
+
+    HomeController.$inject = ['dataService', 'notifier', '$route', '$log'];
+
+    angular
+        .module('app')
+        .controller('HomeController', HomeController);
 
 }());

@@ -10,18 +10,18 @@
             "timeOut": "2000"
         };
 
-        return {
-            success: success,
-            error: error
-        };
-
-        function success(message) {
+         function _success(message) {
             toastr.success(message);
         }
 
-        function error(message) {
+        function _error(message) {
             toastr.error(message);
         }
+
+        return {
+            success: _success,
+            error: _error
+        };       
     }
 
 }());

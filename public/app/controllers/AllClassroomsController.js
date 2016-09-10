@@ -1,9 +1,8 @@
 (function () {
 
-    angular.module('app')
-        .controller('AllClassroomsController', ['dataService', 'notifier', AllClassroomsController]);
+    'use strict';
 
-    function AllClassroomsController(dataService, notifier) {
+    var AllClassroomsController = function AllClassroomsController(dataService, notifier) {
 
         var self = this;
 
@@ -17,6 +16,12 @@
             notifier.error(message);
         }
 
-    }
+    };
+
+    AllClassroomsController.$inject = ['dataService', 'notifier'];
+
+        angular
+            .module('app')
+            .controller('AllClassroomsController', AllClassroomsController);
 
 }());
